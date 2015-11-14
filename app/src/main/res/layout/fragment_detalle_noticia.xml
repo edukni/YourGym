@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <LinearLayout android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:background="#000000">
+        <FrameLayout android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9">
+            <Button
+                android:layout_width="120dp"
+                android:layout_height="50dp"
+                android:text="Compartir"
+                android:layout_gravity="right"
+                android:id="@+id/btnShare"
+                android:textColor="#ffffff"
+                android:background="#016aab"/>
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerInside"
+                android:id="@+id/imageConsejo"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:gravity="bottom"
+                android:background="#ee000000"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="25dp"
+                    android:textColor="#ffffff"
+                    android:id="@+id/textConsejo"
+                    android:text="De verdad tengo que hacer este ejercicio todos los dias"/>
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:textColor="#000000"
+                android:id="@+id/descripcion"
+                android:textSize="20dp"
+                android:text="qweqwfedfsdfsdasdasdasdsadsadsadsadasdasdasdasdsadsadsadsadsadsadsaddsfsdsdsdfeewddadasdasddwfedddasdsadasdasdasd"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>
