@@ -192,6 +192,7 @@ public class MainActivity extends ActionBarActivity implements OnChangePage {
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
             mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         }
+
         if(id.equals("Register")) {
             getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentRegister(this)).addToBackStack(null).commit();
             getSupportActionBar().setHomeButtonEnabled(false);
