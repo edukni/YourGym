@@ -42,6 +42,7 @@ public class FragmentInstructor extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState) {
+
         container = (ViewGroup)inflater.inflate(R.layout.fragment_instructor, container, false);
         final ListView listEjercicioSelecc = (ListView)container.findViewById(R.id.listEjercicioSelecc);
         final ViewGroup finalContainer = container;
