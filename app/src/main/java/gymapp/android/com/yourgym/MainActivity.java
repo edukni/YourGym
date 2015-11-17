@@ -194,7 +194,7 @@ public class MainActivity extends ActionBarActivity implements OnChangePage {
 
         }
         if(id.equals("Register")) {
-            getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentRegister(this)).addToBackStack(null).commit();
+            getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentLogin(this)).addToBackStack(null).commit();
             getSupportActionBar().setHomeButtonEnabled(false);
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
