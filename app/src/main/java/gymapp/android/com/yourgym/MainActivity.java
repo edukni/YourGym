@@ -43,6 +43,7 @@ import gymapp.android.com.yourgym.Adapter.ListViewMenuAdapter;
 import gymapp.android.com.yourgym.Fragment.FragmentConfiguracion;
 import gymapp.android.com.yourgym.Fragment.FragmentDetalleNoticia;
 import gymapp.android.com.yourgym.Fragment.FragmentEjercicioSeleccionado;
+import gymapp.android.com.yourgym.Fragment.FragmentGimnasios;
 import gymapp.android.com.yourgym.Fragment.FragmentInicio;
 import gymapp.android.com.yourgym.Fragment.FragmentInstructor;
 import gymapp.android.com.yourgym.Fragment.FragmentLogin;
@@ -125,7 +126,9 @@ public class MainActivity extends ActionBarActivity implements OnChangePage {
         menuItems.add(new Menu("Dieta", "http://yourgym.site88.net/loadDieta.php"));
         menuItems.add(new Menu("Instructor", "http://yourgym.site88.net/loadInstructor.php"));
         menuItems.add(new Menu("Servicios", "http://yourgym.site88.net/loadServicios.php"));
+        menuItems.add(new Menu("Gimnasios", ""));
         menuItems.add(new Menu("Configuracion", ""));
+
         ListViewMenuAdapter adapter = new ListViewMenuAdapter(menuItems,this);
         listMenu.setAdapter(adapter);
         _fragmentContenido = (FrameLayout) findViewById(R.id.fragmentContenido);
@@ -242,6 +245,9 @@ public class MainActivity extends ActionBarActivity implements OnChangePage {
         }
         if(id.equals("Configuracion")){
             getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentConfiguracion(this)).addToBackStack(null).commit();
+        }
+        if(id.equals("Gimnasios")){
+            getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentGimnasios(this)).addToBackStack(null).commit();
         }
         mDrawerLayout.closeDrawers();
     }

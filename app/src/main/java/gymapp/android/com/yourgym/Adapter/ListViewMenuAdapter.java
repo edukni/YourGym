@@ -83,8 +83,13 @@ public class ListViewMenuAdapter extends BaseAdapter {
             imageIcono.setImageResource(R.mipmap.rutina2);
         }
         else if(position==5) {
+            imageIcono.setImageResource(R.mipmap.world3);
+
+        }
+        else if(position==6) {
             imageIcono.setImageResource(R.mipmap.servicios2);
         }
+
 
         return convertView;
 
