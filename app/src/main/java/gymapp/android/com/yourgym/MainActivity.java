@@ -4,6 +4,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Environment;
 import android.support.v4.app.FragmentManager;
@@ -12,6 +13,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -38,6 +40,7 @@ import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 
 import java.io.File;
 import java.util.LinkedList;
+import java.util.Locale;
 
 import gymapp.android.com.yourgym.Adapter.ListViewMenuAdapter;
 import gymapp.android.com.yourgym.Fragment.FragmentConfiguracion;
@@ -63,17 +66,56 @@ public class MainActivity extends ActionBarActivity implements OnChangePage {
     private double latitude;
     private double longitude;
     private GoogleMap mapa;
+    int colorFondo;
 
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        SharedPreferences prefs = getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        int lang = prefs.getInt("language", 0);
+        colorFondo = prefs.getInt("color", 0);
+        String lenguaje = "es";
+        if(lang == 0){
+            lenguaje = "es";
+        }
+        else{
+            lenguaje = "en";
+        }
+
+        Locale loc = new Locale(lenguaje);
+        Locale.setDefault(loc);
+
+        Configuration configu = new Configuration();
+        configu.locale = loc;
+
+        DisplayMetrics metrics = getBaseContext().getResources().getDisplayMetrics();
+        getBaseContext().getResources().updateConfiguration(configu, metrics);
+
         setContentView(R.layout.activity_main);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         ListView listMenu = (ListView)findViewById(R.id.menuPrincipal);
         image = (ImageView)findViewById(R.id.image);
         nombre = (TextView)findViewById(R.id.nombreUsuario);
         txtLogout=(Button) findViewById(R.id.txtLogout);
+
+        _fragmentContenido = (FrameLayout) findViewById(R.id.fragmentContenido);
+        if(colorFondo == 0){
+            _fragmentContenido.setBackgroundColor(Color.WHITE);
+
+        }else if(colorFondo == 1){
+            _fragmentContenido.setBackgroundColor(Color.BLUE);
+
+        }else if(colorFondo == 2){
+            _fragmentContenido.setBackgroundColor(Color.RED);
+
+        }else if(colorFondo == 3){
+            _fragmentContenido.setBackgroundColor(Color.YELLOW);
+
+        }else{
+            _fragmentContenido.setBackgroundColor(Color.WHITE);
+        }
 
         txtLogout.setOnClickListener(new View.OnClickListener(){
                                         public void onClick(View v){
@@ -121,6 +163,7 @@ public class MainActivity extends ActionBarActivity implements OnChangePage {
         listRutinaEjercicio.add("http://yourgym.site88.net/loadRutina.php");
         listRutinaEjercicio.add("http://yourgym.site88.net/loadEjercicio.php");
 
+<<<<<<< HEAD
         menuItems.add(new Menu("Inicio","http://yourgym.site88.net/loadInicio.php"));
         menuItems.add(new Menu("Rutina", listRutinaEjercicio));
         menuItems.add(new Menu("Dieta", "http://yourgym.site88.net/loadDieta.php"));
@@ -128,10 +171,28 @@ public class MainActivity extends ActionBarActivity implements OnChangePage {
         menuItems.add(new Menu("Servicios", "http://yourgym.site88.net/loadServicios.php"));
         menuItems.add(new Menu("Gimnasios", ""));
         menuItems.add(new Menu("Configuracion", ""));
+=======
+        if(lang == 0){
+            menuItems.add(new Menu("Inicio","http://yourgym.site88.net/loadInicio.php"));
+            menuItems.add(new Menu("Rutina", listRutinaEjercicio));
+            menuItems.add(new Menu("Dieta", "http://yourgym.site88.net/loadDieta.php"));
+            menuItems.add(new Menu("Instructor", "http://yourgym.site88.net/loadInstructor.php"));
+            menuItems.add(new Menu("Servicios", "http://yourgym.site88.net/loadServicios.php"));
+            menuItems.add(new Menu("Configuración", ""));
+        }
+        else{
+            menuItems.add(new Menu("Home","http://yourgym.site88.net/loadInicio.php"));
+            menuItems.add(new Menu("Routine", listRutinaEjercicio));
+            menuItems.add(new Menu("Diet", "http://yourgym.site88.net/loadDieta.php"));
+            menuItems.add(new Menu("Trainer", "http://yourgym.site88.net/loadInstructor.php"));
+            menuItems.add(new Menu("Services", "http://yourgym.site88.net/loadServicios.php"));
+            menuItems.add(new Menu("Configuration", ""));
+        }
+>>>>>>> origin/master
 
         ListViewMenuAdapter adapter = new ListViewMenuAdapter(menuItems,this);
         listMenu.setAdapter(adapter);
-        _fragmentContenido = (FrameLayout) findViewById(R.id.fragmentContenido);
+
         listMenu.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View clickView, int position, long id) {
                 changePage(menuItems.get(position).getIdentificador(), menuItems.get(position));
@@ -205,20 +266,20 @@ public class MainActivity extends ActionBarActivity implements OnChangePage {
 
         }
 
-        if(id.equals("Rutina")) {
+        if((id.equals("Rutina")) || (id.equals("Routine"))) {
 
             getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentRutinaEjercicios(this, ((Menu) itemSelect).getLista())).addToBackStack(null).commit();
         }
-        if(id.equals("Dieta")) {
+        if((id.equals("Dieta")) || (id.equals("Diet"))) {
             getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentEjercicioSeleccionado(this, itemSelect)).addToBackStack(null).commit();
         }
-        if(id.equals("Instructor")) {
+        if((id.equals("Instructor")) || (id.equals("Trainer"))) {
             getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentInstructor(this, itemSelect)).addToBackStack(null).commit();
         }
-        if(id.equals("Servicios")) {
+        if((id.equals("Servicios")) || (id.equals("Services"))) {
             getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentServicios(this,itemSelect)).addToBackStack(null).commit();
         }
-        if(id.equals("Inicio")) {
+        if((id.equals("Inicio")) || (id.equals("Home"))) {
             getSupportActionBar().setHomeButtonEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -243,7 +304,7 @@ public class MainActivity extends ActionBarActivity implements OnChangePage {
         if(id.equals("listaEjercicioSeleccionado")) {
             getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentEjercicioSeleccionado(this, itemSelect)).addToBackStack(null).commit();
         }
-        if(id.equals("Configuracion")){
+        if((id.equals("Configuracion")) || (id.equals("Configuration"))){
             getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentConfiguracion(this)).addToBackStack(null).commit();
         }
         if(id.equals("Gimnasios")){

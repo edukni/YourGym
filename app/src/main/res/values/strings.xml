@@ -4,4 +4,47 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_map_demo">MapDemoActivity</string>
+
+    <string name="etUsername">Nombre de usuario</string>
+    <string name="etPassword">Contraseña</string>
+    <string name="txtViewregister">Registro</string>
+    <string name="btnLogin">Entrar</string>
+
+    <string name="etName">Nombre</string>
+    <string name="etAge">Edad</string>
+    <string name="etPassword2">Contraseña</string>
+    <string name="bRegister">Registrar</string>
+
+    <string name="txtBienvenido">Bienvenido: </string>
+    <string name="txtLogout">Salir</string>
+
+    <string name="inicioNoticias">Noticias</string>
+
+    <string name="btnRutina">Rutina</string>
+    <string name="btnEjercicio">Ejercicio</string>
+
+    <string name="tituloListaEjercicio">Dieta</string>
+
+    <string name="txtInstructores">Instructores</string>
+
+    <string name="txtServicios">Servicios</string>
+
+    <string name="btnShare">Compartir</string>
+    <string name="textConsejo">esp</string>
+
+    <string name="configIdioma">Idioma</string>
+    <string-array name="str_array_sectionsLanguage">
+        <item>Español</item>
+        <item>English</item>
+    </string-array>
+
+    <string name="configColor">Color</string>
+    <string-array name="str_array_sectionsColor">
+        <item>Blanco</item>
+        <item>Azul</item>
+        <item>Rojo</item>
+        <item>Amarillo</item>
+    </string-array>
+
+    <string name="btnConfig">Guardar</string>
 </resources>

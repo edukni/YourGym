@@ -10,6 +10,7 @@ public class Noticia {
     private String _imagen;
     private int _tipoContenido;
     private String _descripion = "";
+    private String _descripionIng = "";
 
     public Noticia()
     {
@@ -18,14 +19,23 @@ public class Noticia {
 
     public Noticia(JSONObject object)
     {
-        this.set_titulo(object.optString("titulo",""));
+        this.set_titulo(object.optString("titulo", ""));
         if(_titulo.equals(""))
         {
             _titulo = object.optString("nombre","");
         }
-        this.set_tipoContenido(object.optInt("tipo",0));
-        this.set_imagen(object.optString("urlFoto",""));
+        this.set_tipoContenido(object.optInt("tipo", 0));
+        this.set_imagen(object.optString("urlFoto", ""));
         this.set_descripion(object.optString("descripcion",""));
+        this.set_descripionIng(object.optString("descripcionIng",""));
+    }
+
+    public String get_descripionIng() {
+        return _descripionIng;
+    }
+
+    public void set_descripionIng(String _descripionIng) {
+        this._descripionIng = _descripionIng;
     }
 
     public String get_titulo() {
