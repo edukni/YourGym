@@ -12,6 +12,8 @@ public class Noticia {
     private String _descripion = "";
     private String _descripionIng = "";
 
+    private String _tituloIng;
+
     public Noticia()
     {
 
@@ -26,8 +28,13 @@ public class Noticia {
         }
         this.set_tipoContenido(object.optInt("tipo", 0));
         this.set_imagen(object.optString("urlFoto", ""));
-        this.set_descripion(object.optString("descripcion",""));
-        this.set_descripionIng(object.optString("descripcionIng",""));
+        this.set_descripion(object.optString("descripcion", ""));
+        this.set_descripionIng(object.optString("descripcionIng", ""));
+        this.set_tituloIng(object.optString("tituloIng", ""));
+        if(_tituloIng.equals(""))
+        {
+            _tituloIng = object.optString("nombreIng","");
+        }
     }
 
     public String get_descripionIng() {
@@ -68,5 +75,12 @@ public class Noticia {
 
     public void set_descripion(String _descripion) {
         this._descripion = _descripion;
+    }
+    public String get_tituloIng() {
+        return _tituloIng;
+    }
+
+    public void set_tituloIng(String _tituloIng) {
+        this._tituloIng = _tituloIng;
     }
 }

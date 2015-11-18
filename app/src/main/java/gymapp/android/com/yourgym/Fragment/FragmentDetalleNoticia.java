@@ -54,6 +54,7 @@ public class FragmentDetalleNoticia extends Fragment {
             this.noticia = new Noticia();
             this.noticia.set_titulo(((Ejercicio)itemSelect).getNombreEjercicio());
             this.noticia.set_imagen(((Ejercicio) itemSelect).getUrlFoto());
+            this.noticia.set_tituloIng(((Ejercicio) itemSelect).getNombreEjercicioIng());
         }
     }
 
@@ -70,15 +71,22 @@ public class FragmentDetalleNoticia extends Fragment {
 
         imageLoader.displayImage(noticia.get_imagen(), image);
         context = container.getContext();
-        textNoticia.setText(noticia.get_titulo());
-        if(!noticia.get_descripion().equals("")) {
-            if (lenguaje == 0)
+        if(lenguaje == 0){
+            textNoticia.setText(noticia.get_titulo());
+            if(!noticia.get_descripion().equals("")) {
                 descripcion.setText(noticia.get_descripion());
-            else if (lenguaje == 1)
+            } else {
+                descripcion.setVisibility(View.GONE);
+            }
+        }else if(lenguaje == 1){
+            textNoticia.setText(noticia.get_tituloIng());
+            if(!noticia.get_descripion().equals("")) {
                 descripcion.setText(noticia.get_descripionIng());
-        } else {
-            descripcion.setVisibility(View.GONE);
+            } else {
+                descripcion.setVisibility(View.GONE);
+            }
         }
+
         final ViewGroup finalContainer = container;
         btnShare.setOnClickListener(new View.OnClickListener() {
             @Override

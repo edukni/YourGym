@@ -304,7 +304,7 @@ public class MainActivity extends ActionBarActivity implements OnChangePage {
         if(id.equals("listaEjercicioSeleccionado")) {
             getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentEjercicioSeleccionado(this, itemSelect)).addToBackStack(null).commit();
         }
-        if((id.equals("Configuracion")) || (id.equals("Configuration"))){
+        if((id.equals("Configuración")) || (id.equals("Configuration"))){
             getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentConfiguracion(this)).addToBackStack(null).commit();
         }
         if(id.equals("Gimnasios")){

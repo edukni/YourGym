@@ -9,17 +9,27 @@ public class Ejercicio {
     private String idEjercicio;
     private String nombreEjercicio;
     private String urlFoto;
+    private String nombreEjercicioIng;
 
     public Ejercicio(JSONObject object)
     {
         this.setIdEjercicio(object.optString("idEjercicio",""));
         this.setNombreEjercicio(object.optString("nombreEjercicio",""));
         this.setUrlFoto(object.optString("urlFoto",""));
+        this.setNombreEjercicioIng(object.optString("nombreEjercicioIng",""));
     }
 
     public Ejercicio()
     {
 
+    }
+
+    public String getNombreEjercicioIng() {
+        return nombreEjercicioIng;
+    }
+
+    public void setNombreEjercicioIng(String nombreEjercicioIng) {
+        this.nombreEjercicioIng = nombreEjercicioIng;
     }
 
     public String getIdEjercicio() {
