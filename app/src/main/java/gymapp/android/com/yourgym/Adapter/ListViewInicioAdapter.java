@@ -64,7 +64,9 @@ public class ListViewInicioAdapter extends BaseAdapter {
         ImageView image = (ImageView)convertView.findViewById(R.id.imageConsejo);
         imageLoader.displayImage(listNoticia.get(position).get_imagen(), image);
         textConsejo.setText(listNoticia.get(position).get_titulo());
-        if((listNoticia.get(position).get_tipoContenido()==0)) {
+
+
+        if((listNoticia.get(position).get_tipoContenido()==0) ) {
             txtTipoContenido.setText("Consejo");
         } else if((listNoticia.get(position).get_tipoContenido()==1)) {
             txtTipoContenido.setText("Promocion");
