@@ -163,13 +163,7 @@ public class MainActivity extends ActionBarActivity implements OnChangePage {
         listRutinaEjercicio.add("http://yourgym.site88.net/loadRutina.php");
         listRutinaEjercicio.add("http://yourgym.site88.net/loadEjercicio.php");
 
-        menuItems.add(new Menu("Inicio","http://yourgym.site88.net/loadInicio.php"));
-        menuItems.add(new Menu("Rutina", listRutinaEjercicio));
-        menuItems.add(new Menu("Dieta", "http://yourgym.site88.net/loadDieta.php"));
-        menuItems.add(new Menu("Instructor", "http://yourgym.site88.net/loadInstructor.php"));
-        menuItems.add(new Menu("Servicios", "http://yourgym.site88.net/loadServicios.php"));
-        menuItems.add(new Menu("Gimnasios", ""));
-        menuItems.add(new Menu("Configuracion", ""));
+
 
         if(lang == 0){
             menuItems.add(new Menu("Inicio","http://yourgym.site88.net/loadInicio.php"));
@@ -177,6 +171,7 @@ public class MainActivity extends ActionBarActivity implements OnChangePage {
             menuItems.add(new Menu("Dieta", "http://yourgym.site88.net/loadDieta.php"));
             menuItems.add(new Menu("Instructor", "http://yourgym.site88.net/loadInstructor.php"));
             menuItems.add(new Menu("Servicios", "http://yourgym.site88.net/loadServicios.php"));
+            menuItems.add(new Menu("Gimnasios", ""));
             menuItems.add(new Menu("Configuración", ""));
         }
         else{
@@ -185,6 +180,7 @@ public class MainActivity extends ActionBarActivity implements OnChangePage {
             menuItems.add(new Menu("Diet", "http://yourgym.site88.net/loadDieta.php"));
             menuItems.add(new Menu("Trainer", "http://yourgym.site88.net/loadInstructor.php"));
             menuItems.add(new Menu("Services", "http://yourgym.site88.net/loadServicios.php"));
+            menuItems.add(new Menu("Gyms", ""));
             menuItems.add(new Menu("Configuration", ""));
         }
 
@@ -305,8 +301,9 @@ public class MainActivity extends ActionBarActivity implements OnChangePage {
         if((id.equals("Configuración")) || (id.equals("Configuration"))){
             getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentConfiguracion(this)).addToBackStack(null).commit();
         }
-        if(id.equals("Gimnasios")){
-            getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentGimnasios(this)).addToBackStack(null).commit();
+        if((id.equals("Gimnasios"))||(id.equals("Gyms"))) {
+
+                getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentGimnasios(this)).addToBackStack(null).commit();
         }
         mDrawerLayout.closeDrawers();
     }
