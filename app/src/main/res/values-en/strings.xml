@@ -5,15 +5,46 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_map_demo">MapDemoActivity</string>
 
+    <string name="etUsername">Username</string>
+    <string name="etPassword">Password</string>
+    <string name="txtViewregister">Register</string>
+    <string name="btnLogin">Login</string>
+
+    <string name="etName">Name</string>
+    <string name="etAge">Age</string>
+    <string name="etPassword2">Password</string>
+    <string name="bRegister">Register</string>
+
+    <string name="txtBienvenido">Welcome: </string>
+    <string name="txtLogout">Logout</string>
+
+    <string name="inicioNoticias">News</string>
+
+    <string name="btnRutina">Routine</string>
+    <string name="btnEjercicio">Exercise</string>
+
+    <string name="tituloListaEjercicio">Diet</string>
+
+    <string name="txtInstructores">Trainers</string>
+
+    <string name="txtServicios">Services</string>
+
+    <string name="btnShare">Share</string>
+    <string name="textConsejo">eng</string>
+
+    <string name="configIdioma">Language</string>
     <string-array name="str_array_sectionsLanguage">
         <item>Español</item>
         <item>English</item>
     </string-array>
 
+    <string name="configColor">Color</string>
     <string-array name="str_array_sectionsColor">
         <item>White</item>
         <item>Blue</item>
         <item>Red</item>
         <item>Yellow</item>
     </string-array>
+
+    <string name="btnConfig">Save</string>
 </resources>

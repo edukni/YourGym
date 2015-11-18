@@ -11,11 +11,11 @@
             android:layout_height="match_parent"
             android:layout_marginRight="5dp"
             android:layout_weight="1"
-            android:text="Rutina"
+            android:text="@string/btnRutina"
             android:background="@drawable/btn_toggle"
             android:id="@+id/btnRutina"
-            android:textOn="Rutina"
-            android:textOff="Rutina"
+            android:textOn="@string/btnRutina"
+            android:textOff="@string/btnRutina"
             android:checked="true"/>
         <ToggleButton
             android:layout_width="0dp"
@@ -23,9 +23,9 @@
             android:layout_marginLeft="5dp"
             android:id="@+id/btnEjercicio"
             android:background="@drawable/btn_toggle"
-            android:textOn="Ejercicio"
-            android:textOff="Ejercicio"
-            android:text="Ejercicio"
+            android:textOn="@string/btnEjercicio"
+            android:textOff="@string/btnEjercicio"
+            android:text="@string/btnEjercicio"
             android:layout_weight="1"/>
     </LinearLayout>
     <FrameLayout

@@ -23,7 +23,7 @@
             android:background="@drawable/rounded_corner_blue"
             android:textColor="#ffffff"
             android:textColorHint="#ffffff"
-            android:hint="Name" />
+            android:hint="@string/etName" />
 
         <EditText
             android:layout_width="match_parent"
@@ -32,7 +32,7 @@
             android:layout_margin="10dp"
             android:background="@drawable/rounded_corner_blue"
             android:textColor="#ffffff"
-            android:hint="Age"
+            android:hint="@string/etAge"
             android:textColorHint="#ffffff" />
 
         <EditText
@@ -41,17 +41,17 @@
             android:inputType="textPassword"
             android:layout_margin="10dp"
 
-            android:id="@+id/etPassword"
+            android:id="@+id/etPassword2"
             android:background="@drawable/rounded_corner_blue"
             android:textColor="#ffffff"
-            android:hint="Password"
+            android:hint="@string/etPassword2"
             android:textColorHint="#ffffff" />
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/bRegister"
-            android:text="Register"
+            android:text="@string/bRegister"
             android:background="@drawable/rounded_corner_black"
             android:textColor="#ffffff"
             android:textSize="30sp"

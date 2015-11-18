@@ -38,7 +38,7 @@ public class FragmentConfiguracion extends Fragment{
 
         spinnerLanguage = (Spinner) rootView.findViewById(R.id.spinnerLanguage);
         spinnerColor = (Spinner) rootView.findViewById(R.id.spinnerColor);
-        btnConfiguration    = (Button) rootView.findViewById(R.id.btnConfiguration);
+        btnConfiguration    = (Button) rootView.findViewById(R.id.btnConfig);
 
         loadConfig();
 

@@ -2,6 +2,7 @@ package gymapp.android.com.yourgym.Fragment;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.LabeledIntent;
 import android.content.pm.PackageManager;
@@ -40,6 +41,7 @@ public class FragmentDetalleNoticia extends Fragment {
     private Noticia noticia;
     Context context;
     ImageLoader imageLoader = ImageLoader.getInstance();
+    int lenguaje;
 
     public FragmentDetalleNoticia(OnChangePage listener, Object itemSelect)
     {
@@ -58,15 +60,22 @@ public class FragmentDetalleNoticia extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater,ViewGroup container, Bundle savedInstanceState) {
         container = (ViewGroup)inflater.inflate(R.layout.fragment_detalle_noticia, container, false);
+
         TextView textNoticia = (TextView)container.findViewById(R.id.textConsejo);
         TextView descripcion = (TextView)container.findViewById(R.id.descripcion);
         Button btnShare = (Button)container.findViewById(R.id.btnShare);
         ImageView image = (ImageView)container.findViewById(R.id.imageConsejo);
+
+        loadConfig();
+
         imageLoader.displayImage(noticia.get_imagen(), image);
         context = container.getContext();
         textNoticia.setText(noticia.get_titulo());
         if(!noticia.get_descripion().equals("")) {
-            descripcion.setText(noticia.get_descripion());
+            if (lenguaje == 0)
+                descripcion.setText(noticia.get_descripion());
+            else if (lenguaje == 1)
+                descripcion.setText(noticia.get_descripionIng());
         } else {
             descripcion.setVisibility(View.GONE);
         }
@@ -97,6 +106,12 @@ public class FragmentDetalleNoticia extends Fragment {
             }
         });
         return container;
+    }
+
+    private void loadConfig(){
+        Context context = getActivity();
+        SharedPreferences prefs = context.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        lenguaje = prefs.getInt("language", 0);
     }
 
     @Override

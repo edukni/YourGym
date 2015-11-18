@@ -17,7 +17,7 @@
             <Button
                 android:layout_width="120dp"
                 android:layout_height="50dp"
-                android:text="Compartir"
+                android:text="@string/btnShare"
                 android:layout_gravity="right"
                 android:id="@+id/btnShare"
                 android:textColor="#ffffff"
@@ -40,7 +40,7 @@
                     android:textSize="25dp"
                     android:textColor="#ffffff"
                     android:id="@+id/textConsejo"
-                    android:text="De verdad tengo que hacer este ejercicio todos los dias"/>
+                    android:text="@string/textConsejo"/>
             </LinearLayout>
         </FrameLayout>
     </LinearLayout>

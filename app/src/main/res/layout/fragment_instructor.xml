@@ -5,12 +5,13 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Instructores"
+        android:text="@string/txtInstructores"
         android:background="#000000"
         android:textSize="35dp"
         android:textColor="#ffffff"
         android:layout_gravity="center"
-        android:gravity="center"/>
+        android:gravity="center"
+        android:id="@+id/txtInstructores" />
     <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

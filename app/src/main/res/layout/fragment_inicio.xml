@@ -15,7 +15,8 @@
             android:textSize="35dp"
             android:textColor="#ffffff"
             android:textStyle="bold"
-            android:text="Noticias"/>
+            android:text="@string/inicioNoticias"
+            android:id="@+id/inicioNoticias" />
     </FrameLayout>
     <ListView
         android:layout_width="match_parent"
