@@ -163,15 +163,6 @@ public class MainActivity extends ActionBarActivity implements OnChangePage {
         listRutinaEjercicio.add("http://yourgym.site88.net/loadRutina.php");
         listRutinaEjercicio.add("http://yourgym.site88.net/loadEjercicio.php");
 
-<<<<<<< HEAD
-        menuItems.add(new Menu("Inicio","http://yourgym.site88.net/loadInicio.php"));
-        menuItems.add(new Menu("Rutina", listRutinaEjercicio));
-        menuItems.add(new Menu("Dieta", "http://yourgym.site88.net/loadDieta.php"));
-        menuItems.add(new Menu("Instructor", "http://yourgym.site88.net/loadInstructor.php"));
-        menuItems.add(new Menu("Servicios", "http://yourgym.site88.net/loadServicios.php"));
-        menuItems.add(new Menu("Gimnasios", ""));
-        menuItems.add(new Menu("Configuracion", ""));
-=======
         if(lang == 0){
             menuItems.add(new Menu("Inicio","http://yourgym.site88.net/loadInicio.php"));
             menuItems.add(new Menu("Rutina", listRutinaEjercicio));
@@ -188,7 +179,6 @@ public class MainActivity extends ActionBarActivity implements OnChangePage {
             menuItems.add(new Menu("Services", "http://yourgym.site88.net/loadServicios.php"));
             menuItems.add(new Menu("Configuration", ""));
         }
->>>>>>> origin/master
 
         ListViewMenuAdapter adapter = new ListViewMenuAdapter(menuItems,this);
         listMenu.setAdapter(adapter);
