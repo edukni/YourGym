@@ -1,6 +1,9 @@
 package gymapp.android.com.yourgym.Adapter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -14,6 +17,7 @@ import org.w3c.dom.Text;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Locale;
 
 import gymapp.android.com.yourgym.Model.Consejo;
 import gymapp.android.com.yourgym.Model.Noticia;
@@ -63,12 +67,26 @@ public class ListViewInicioAdapter extends BaseAdapter {
         TextView txtTipoContenido = (TextView)convertView.findViewById(R.id.txtTipoContenido);
         ImageView image = (ImageView)convertView.findViewById(R.id.imageConsejo);
         imageLoader.displayImage(listNoticia.get(position).get_imagen(), image);
-        textConsejo.setText(listNoticia.get(position).get_titulo());
-        if((listNoticia.get(position).get_tipoContenido()==0)) {
-            txtTipoContenido.setText("Consejo");
-        } else if((listNoticia.get(position).get_tipoContenido()==1)) {
-            txtTipoContenido.setText("Promocion");
+
+        SharedPreferences prefs = _context.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        int lang = prefs.getInt("language", 0);
+        if(lang == 0){
+            textConsejo.setText(listNoticia.get(position).get_titulo());
+            if((listNoticia.get(position).get_tipoContenido()==0)) {
+                txtTipoContenido.setText("Consejo");
+            } else if((listNoticia.get(position).get_tipoContenido()==1)) {
+                txtTipoContenido.setText("Promocion");
+            }
         }
+        else if(lang == 1){
+            textConsejo.setText(listNoticia.get(position).get_tituloIng());
+            if((listNoticia.get(position).get_tipoContenido()==0)) {
+                txtTipoContenido.setText("Advice");
+            } else if((listNoticia.get(position).get_tipoContenido()==1)) {
+                txtTipoContenido.setText("Promotion");
+            }
+        }
+
         return convertView;
     }
 }

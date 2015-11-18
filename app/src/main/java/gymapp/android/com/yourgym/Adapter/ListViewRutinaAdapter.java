@@ -1,6 +1,7 @@
 package gymapp.android.com.yourgym.Adapter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,14 +55,29 @@ public class ListViewRutinaAdapter extends BaseAdapter {
         TextView textConsejo = (TextView)convertView.findViewById(R.id.nombre);
         TextView txtTipoContenido = (TextView)convertView.findViewById(R.id.contenido);
         TextView descripcionRutina = (TextView)convertView.findViewById(R.id.descripcionRutina);
-        textConsejo.setText(listNoticia.get(position).getNombre());
-        descripcionRutina.setText(listNoticia.get(position).getDescripcion());
-        if(listNoticia.get(position).getEstado()==0) {
-            txtTipoContenido.setText("En Progreso");
-            txtTipoContenido.setTextColor(Color.parseColor("#ff0000"));
-        } else {
-            txtTipoContenido.setText("Completado");
-            txtTipoContenido.setTextColor(Color.parseColor("#00ff00"));
+        SharedPreferences prefs = _context.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        int lang = prefs.getInt("language", 0);
+        if(lang == 0) {
+            textConsejo.setText(listNoticia.get(position).getNombre());
+            descripcionRutina.setText(listNoticia.get(position).getDescripcion());
+            if (listNoticia.get(position).getEstado() == 0) {
+                txtTipoContenido.setText("En Progreso");
+                txtTipoContenido.setTextColor(Color.parseColor("#ff0000"));
+            } else {
+                txtTipoContenido.setText("Completado");
+                txtTipoContenido.setTextColor(Color.parseColor("#00ff00"));
+            }
+        }
+        else if(lang == 1) {
+            textConsejo.setText(listNoticia.get(position).getNombreIng());
+            descripcionRutina.setText(listNoticia.get(position).getDescripcionIng());
+            if (listNoticia.get(position).getEstado() == 0) {
+                txtTipoContenido.setText("In Progress");
+                txtTipoContenido.setTextColor(Color.parseColor("#ff0000"));
+            } else {
+                txtTipoContenido.setText("Completed");
+                txtTipoContenido.setTextColor(Color.parseColor("#00ff00"));
+            }
         }
         return convertView;
     }

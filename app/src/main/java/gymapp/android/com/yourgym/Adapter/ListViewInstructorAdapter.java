@@ -1,6 +1,7 @@
 package gymapp.android.com.yourgym.Adapter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -56,7 +57,14 @@ public class ListViewInstructorAdapter extends BaseAdapter {
         }
         ImageView image = (ImageView)convertView.findViewById(R.id.image);
         TextView textConsejo = (TextView)convertView.findViewById(R.id.nombre);
-        textConsejo.setText(listNoticia.get(position).get_titulo());
+        SharedPreferences prefs = _context.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        int lang = prefs.getInt("language", 0);
+        if(lang == 0) {
+            textConsejo.setText(listNoticia.get(position).get_titulo());
+        }
+        if(lang == 1) {
+            textConsejo.setText(listNoticia.get(position).get_tituloIng());
+        }
         imageLoader.displayImage(listNoticia.get(position).get_imagen(), image);
         return convertView;
     }

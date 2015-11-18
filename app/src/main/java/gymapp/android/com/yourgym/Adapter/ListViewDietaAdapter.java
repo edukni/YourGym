@@ -1,6 +1,7 @@
 package gymapp.android.com.yourgym.Adapter;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -50,7 +51,14 @@ public class ListViewDietaAdapter extends BaseAdapter {
         convertView = View.inflate(parent.getContext(), R.layout.adapter_listview_ejercicio,null);
         TextView textConsejo = (TextView)convertView.findViewById(R.id.txtTitulo);
         //      TextView txtTipoContenido = (TextView)convertView.findViewById(R.id.txtTipoContenido);
-        textConsejo.setText(listNoticia.get(position).get_titulo());
+        SharedPreferences prefs = _context.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        int lang = prefs.getInt("language", 0);
+        if(lang == 0) {
+            textConsejo.setText(listNoticia.get(position).get_titulo());
+        }
+        else if(lang == 1) {
+            textConsejo.setText(listNoticia.get(position).get_tituloIng());
+        }
         //  txtTipoContenido.setText("Consejo");
         return convertView;
     }

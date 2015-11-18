@@ -11,13 +11,17 @@ public class Rutina {
     private String nombre;
     private String descripcion;
     private int estado;
+    private String descripcionIng;
+    private String nombreIng;
 
     public Rutina(JSONObject jsonObject)
     {
         setId_rutina(jsonObject.optString("id_rutina",""));
-        setNombre(jsonObject.optString("nombre",""));
-        setDescripcion(jsonObject.optString("descripcion",""));
-        setEstado(jsonObject.optInt("estado",0));
+        setNombre(jsonObject.optString("nombre", ""));
+        setDescripcion(jsonObject.optString("descripcion", ""));
+        setEstado(jsonObject.optInt("estado", 0));
+        setDescripcionIng(jsonObject.optString("descripcionIng", ""));
+        setNombreIng(jsonObject.optString("nombreIng", ""));
     }
 
     public String getId_rutina() {
@@ -28,8 +32,24 @@ public class Rutina {
         this.id_rutina = id_rutina;
     }
 
+    public String getDescripcionIng() {
+        return descripcionIng;
+    }
+
+    public void setDescripcionIng(String descripcionIng) {
+        this.descripcionIng = descripcionIng;
+    }
+
     public String getNombre() {
         return nombre;
+    }
+
+    public String getNombreIng() {
+        return nombreIng;
+    }
+
+    public void setNombreIng(String nombreIng) {
+        this.nombreIng = nombreIng;
     }
 
     public void setNombre(String nombre) {

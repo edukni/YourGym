@@ -10,12 +10,14 @@ public class Servicio {
     private String idServicio;
     private String nombreServicio;
     private String url;
+    private String nombreServicioIng;
 
     public Servicio(JSONObject jsonObject)
     {
         setIdServicio(jsonObject.optString("idServicio", ""));
-        setNombreServicio(jsonObject.optString("nombreServicio",""));
-        setUrl(jsonObject.optString("url",""));
+        setNombreServicio(jsonObject.optString("nombreServicio", ""));
+        setUrl(jsonObject.optString("url", ""));
+        setNombreServicioIng(jsonObject.optString("nombreServicioIng", ""));
     }
 
     public String getIdServicio() {
@@ -28,6 +30,14 @@ public class Servicio {
 
     public String getNombreServicio() {
         return nombreServicio;
+    }
+
+    public String getNombreServicioIng() {
+        return nombreServicioIng;
+    }
+
+    public void setNombreServicioIng(String nombreServicioIng) {
+        this.nombreServicioIng = nombreServicioIng;
     }
 
     public void setNombreServicio(String nombreServicio) {

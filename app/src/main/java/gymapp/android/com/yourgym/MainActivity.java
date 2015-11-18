@@ -297,7 +297,7 @@ public class MainActivity extends ActionBarActivity implements OnChangePage {
         if((id.equals("Configuración")) || (id.equals("Configuration"))){
             getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentConfiguracion(this)).addToBackStack(null).commit();
         }
-        if(id.equals("Gimnasios")){
+        if((id.equals("Gimnasios")) || (id.equals("Gyms"))){
             getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentGimnasios(this)).addToBackStack(null).commit();
         }
         mDrawerLayout.closeDrawers();
