@@ -2,12 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     signingConfigs {
-        debug {
-            keyAlias 'mapagym'
-            keyPassword 'mapgymmapgym'
-            storeFile file('C:/Users/Ramiro/mapagym.keystore')
-            storePassword 'mapgymmapgym'
-        }
     }
     compileSdkVersion 22
     buildToolsVersion "21.1.2"

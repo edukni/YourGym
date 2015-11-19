@@ -48,9 +48,9 @@ public class FragmentLogin extends Fragment {
         final TextView txtContrasenia = (TextView)container.findViewById(R.id.etPassword);
         ImageView image = (ImageView)container.findViewById(R.id.imageView);
 
-        Context context = getActivity();
-        SharedPreferences prefs = context.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
-        lenguaje = prefs.getInt("language", 0);
+        //Context context = getActivity();
+        //SharedPreferences prefs = context.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+        //lenguaje = prefs.getInt("language", 0);
 
 //        getFromSdcard();
 //        image.setImageURI(Uri.parse(f.get(0)));
@@ -68,10 +68,10 @@ public class FragmentLogin extends Fragment {
 
                 if(nombre.equals(txtUserName.getText().toString()))
                 {
-                    if(lenguaje == 0)
+                    //if(lenguaje == 0)
                         _listener.changePage("Inicio","http://yourgym.site88.net/loadInicio.php");
-                    else if(lenguaje == 0)
-                        _listener.changePage("Home","http://yourgym.site88.net/loadInicio.php");
+                    //else if(lenguaje == 0)
+                        //_listener.changePage("Home","http://yourgym.site88.net/loadInicio.php");
                 }
                 else {
                     Toast.makeText(getActivity(), "Nombre de usuario o contraseña invalida", Toast.LENGTH_SHORT).show();
