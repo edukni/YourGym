@@ -70,11 +70,11 @@ public class ListViewInicioAdapter extends BaseAdapter {
 
         SharedPreferences prefs = _context.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
         int lang = prefs.getInt("language", 0);
-        if(lang == 0){
+        if(lang == 0) {
             textConsejo.setText(listNoticia.get(position).get_titulo());
-            if((listNoticia.get(position).get_tipoContenido()==0)) {
+            if ((listNoticia.get(position).get_tipoContenido() == 0)) {
                 txtTipoContenido.setText("Consejo");
-            } else if((listNoticia.get(position).get_tipoContenido()==1)) {
+            } else if ((listNoticia.get(position).get_tipoContenido() == 1)) {
                 txtTipoContenido.setText("Promocion");
             }
         }
@@ -86,6 +86,10 @@ public class ListViewInicioAdapter extends BaseAdapter {
                 txtTipoContenido.setText("Promotion");
             }
         }
+        textConsejo.setText(listNoticia.get(position).get_titulo());
+
+
+
 
         return convertView;
     }

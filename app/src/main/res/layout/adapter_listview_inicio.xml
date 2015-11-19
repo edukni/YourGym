@@ -19,7 +19,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp">
     <ImageView
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="250dp"
         android:scaleType="fitCenter"
         android:id="@+id/imageConsejo"

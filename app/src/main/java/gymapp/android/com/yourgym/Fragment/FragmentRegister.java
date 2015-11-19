@@ -61,6 +61,7 @@ public class FragmentRegister extends Fragment {
     String nombre;
     String edad;
     String contrasenia;
+    int lenguaje;
 
 
     public  FragmentRegister( OnChangePage listner) {
@@ -74,8 +75,9 @@ public class FragmentRegister extends Fragment {
         imageToUpload= (ImageView) container.findViewById(R.id.imageToUpload);
         etName = (EditText) container.findViewById(R.id.etName);
         etAge = (EditText) container.findViewById(R.id.etAge);
-        etPassword = (EditText) container.findViewById(R.id.etPassword);
+        etPassword = (EditText) container.findViewById(R.id.etPassword2);
         bRegister= (Button) container.findViewById(R.id.bRegister);
+
         bRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,7 +100,14 @@ public class FragmentRegister extends Fragment {
 
 
                 new SummaryAsyncTask().execute((Void) null);
-                listner.changePage("Inicio", "http://yourgym.site88.net/loadInicio.php");
+
+                Context context = getActivity();
+                SharedPreferences prefs = context.getSharedPreferences("MisPreferencias", Context.MODE_PRIVATE);
+                lenguaje = prefs.getInt("language", 0);
+                if(lenguaje == 0)
+                    listner.changePage("Inicio", "http://yourgym.site88.net/loadInicio.php");
+                else if (lenguaje == 1)
+                    listner.changePage("Home", "http://yourgym.site88.net/loadInicio.php");
 
             }
         });

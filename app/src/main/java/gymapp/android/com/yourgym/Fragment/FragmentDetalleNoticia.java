@@ -8,7 +8,10 @@ import android.content.pm.LabeledIntent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.text.Html;
 import android.util.Log;
@@ -23,6 +26,7 @@ import android.widget.TextView;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 
+import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +46,7 @@ public class FragmentDetalleNoticia extends Fragment {
     Context context;
     ImageLoader imageLoader = ImageLoader.getInstance();
     int lenguaje;
+    //Bitmap b1;
 
     public FragmentDetalleNoticia(OnChangePage listener, Object itemSelect)
     {
@@ -70,6 +75,7 @@ public class FragmentDetalleNoticia extends Fragment {
         loadConfig();
 
         imageLoader.displayImage(noticia.get_imagen(), image);
+        //b1 = image.getDrawingCache();
         context = container.getContext();
         if(lenguaje == 0){
             textNoticia.setText(noticia.get_titulo());
@@ -91,6 +97,23 @@ public class FragmentDetalleNoticia extends Fragment {
         btnShare.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                //b1.compress(Bitmap.CompressFormat.PNG, 0, bos);
+                // String url = MediaStore.Images.Media.insertImage(this.getContentResolver(), b1 , petActual.getName(), null);
+                //String url = MediaStore.Images.Media.insertImage(context.getContentResolver(), b1 , noticia.get_titulo(), null);
+                //Uri path = Uri.parse(url);
+
+
+                Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, Html.fromHtml(noticia.get_titulo()));
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT, noticia.get_descripion());
+                shareIntent.putExtra(Intent.EXTRA_TEXT, noticia.get_descripion());
+                startActivity(Intent.createChooser(shareIntent, "Compartir"));
+
+                /*
                 Intent sharingIntent = new Intent(Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, Html.fromHtml(noticia.get_titulo()));
@@ -111,6 +134,8 @@ public class FragmentDetalleNoticia extends Fragment {
                     }
                 }
                startActivityForResult(Intent.createChooser(sharingIntent, "Share via"),1);
+
+                */
             }
         });
         return container;

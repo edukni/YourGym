@@ -118,17 +118,17 @@ public class MainActivity extends ActionBarActivity implements OnChangePage {
         }
 
         txtLogout.setOnClickListener(new View.OnClickListener(){
-                                        public void onClick(View v){
+            public void onClick(View v){
 
-                                            SharedPreferences prefe=getSharedPreferences("datos", Context.MODE_PRIVATE);
-                                      SharedPreferences.Editor editor=prefe.edit();
-                                            editor.clear();
-                                            editor.commit();
+                SharedPreferences prefe=getSharedPreferences("datos", Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor=prefe.edit();
+                editor.clear();
+                editor.commit();
 
-                                            changePage("Login",null);
+                changePage("Login",null);
 
-                                        }
-                                     });
+            }
+        });
 
 
         if (!Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)){
@@ -169,14 +169,16 @@ public class MainActivity extends ActionBarActivity implements OnChangePage {
             menuItems.add(new Menu("Dieta", "http://yourgym.site88.net/loadDieta.php"));
             menuItems.add(new Menu("Instructor", "http://yourgym.site88.net/loadInstructor.php"));
             menuItems.add(new Menu("Servicios", "http://yourgym.site88.net/loadServicios.php"));
+            menuItems.add(new Menu("Gimnasios", ""));
             menuItems.add(new Menu("Configuración", ""));
         }
-        else{
+        else if (lang == 1){
             menuItems.add(new Menu("Home","http://yourgym.site88.net/loadInicio.php"));
             menuItems.add(new Menu("Routine", listRutinaEjercicio));
             menuItems.add(new Menu("Diet", "http://yourgym.site88.net/loadDieta.php"));
             menuItems.add(new Menu("Trainer", "http://yourgym.site88.net/loadInstructor.php"));
             menuItems.add(new Menu("Services", "http://yourgym.site88.net/loadServicios.php"));
+            menuItems.add(new Menu("Gyms", ""));
             menuItems.add(new Menu("Configuration", ""));
         }
 
@@ -239,7 +241,7 @@ public class MainActivity extends ActionBarActivity implements OnChangePage {
     @Override
     public void changePage(String id, Object itemSelect) {
 
-        if(id.equals("Login")) {
+        if((id.equals("Entrar")) || (id.equals("Login"))) {
             getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentLogin(this)).addToBackStack(null).commit();
             getSupportActionBar().setHomeButtonEnabled(false);
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
@@ -247,7 +249,7 @@ public class MainActivity extends ActionBarActivity implements OnChangePage {
             mDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         }
 
-        if(id.equals("Register")) {
+        if((id.equals("Registro")) || (id.equals("Register"))) {
             getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentRegister(this)).addToBackStack(null).commit();
             getSupportActionBar().setHomeButtonEnabled(false);
             getSupportActionBar().setDisplayHomeAsUpEnabled(false);
@@ -297,7 +299,7 @@ public class MainActivity extends ActionBarActivity implements OnChangePage {
         if((id.equals("Configuración")) || (id.equals("Configuration"))){
             getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentConfiguracion(this)).addToBackStack(null).commit();
         }
-        if((id.equals("Gimnasios")) || (id.equals("Gyms"))){
+        if( (id.equals("Gimnasios")) || (id.equals("Gyms")) ){
             getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentGimnasios(this)).addToBackStack(null).commit();
         }
         mDrawerLayout.closeDrawers();
