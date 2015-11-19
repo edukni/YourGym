@@ -108,9 +108,9 @@ public class FragmentDetalleNoticia extends Fragment {
                 Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
                 shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, Html.fromHtml(noticia.get_titulo()));
+                shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, noticia.get_titulo());
                 shareIntent.putExtra(Intent.EXTRA_SUBJECT, noticia.get_descripion());
-                shareIntent.putExtra(Intent.EXTRA_TEXT, noticia.get_descripion());
+                shareIntent.putExtra(Intent.EXTRA_TEXT, "YourGym: " + noticia.get_titulo() + ": " + noticia.get_descripion());
                 startActivity(Intent.createChooser(shareIntent, "Compartir"));
 
                 /*

@@ -77,6 +77,7 @@ public class ListViewInicioAdapter extends BaseAdapter {
             } else if ((listNoticia.get(position).get_tipoContenido() == 1)) {
                 txtTipoContenido.setText("Promocion");
             }
+            textConsejo.setText(listNoticia.get(position).get_titulo());
         }
         else if(lang == 1){
             textConsejo.setText(listNoticia.get(position).get_tituloIng());
@@ -85,8 +86,9 @@ public class ListViewInicioAdapter extends BaseAdapter {
             } else if((listNoticia.get(position).get_tipoContenido()==1)) {
                 txtTipoContenido.setText("Promotion");
             }
+            textConsejo.setText(listNoticia.get(position).get_tituloIng());
         }
-        textConsejo.setText(listNoticia.get(position).get_titulo());
+
 
 
 

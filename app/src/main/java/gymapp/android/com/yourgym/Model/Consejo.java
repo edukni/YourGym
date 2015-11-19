@@ -9,11 +9,21 @@ public class Consejo {
 
     private  String IdConsejos;
     private String consejo;
+    private String consejoIng;
 
     public Consejo(JSONObject jsonObject)
     {
         setIdConsejos(jsonObject.optString("IdConsejos",""));
         setConsejo(jsonObject.optString("consejo",""));
+        setConsejoIng(jsonObject.optString("consejoIng",""));
+    }
+
+    public String getConsejoIng() {
+        return consejoIng;
+    }
+
+    public void setConsejoIng(String consejoIng) {
+        this.consejoIng = consejoIng;
     }
 
     public String getIdConsejos() {

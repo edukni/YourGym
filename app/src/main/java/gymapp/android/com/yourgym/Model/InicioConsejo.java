@@ -10,6 +10,8 @@ public class InicioConsejo {
     private String tituloConsejo;
     private String descripcion;
     private String urlFoto;
+    private String tituloConsejoIng;
+    private String descripcionIng;
 
     public InicioConsejo(JSONObject jsonObject)
     {
@@ -17,6 +19,24 @@ public class InicioConsejo {
         tituloConsejo = jsonObject.optString("tituloConsejo","");
         descripcion = jsonObject.optString("descripcion","");
         urlFoto = jsonObject.optString("urlFoto","");
+        tituloConsejoIng = jsonObject.optString("tituloConsejoIng","");
+        descripcionIng = jsonObject.optString("descripcionIng","");
+    }
+
+    public String getTituloConsejoIng() {
+        return tituloConsejoIng;
+    }
+
+    public void setTituloConsejoIng(String tituloConsejoIng) {
+        this.tituloConsejoIng = tituloConsejoIng;
+    }
+
+    public String getDescripcionIng() {
+        return descripcionIng;
+    }
+
+    public void setDescripcionIng(String descripcionIng) {
+        this.descripcionIng = descripcionIng;
     }
 
     public String getIdConsejo() {

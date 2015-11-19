@@ -10,12 +10,14 @@ public class InicioPromocion {
     private String idPromocion;
     private String tituloPromocion;
     private String urlFoto;
+    private String tituloPromocionIng;
 
     public InicioPromocion(JSONObject jsonObject)
     {
         setIdPromocion(jsonObject.optString("idPromocion",""));
         setTituloPromocion(jsonObject.optString("tituloPromocion",""));
         setUrlFoto(jsonObject.optString("urlFoto",""));
+        setTituloPromocionIng(jsonObject.optString("tituloPromocionIng",""));
     }
 
     public String getIdPromocion() {
@@ -28,6 +30,14 @@ public class InicioPromocion {
 
     public String getTituloPromocion() {
         return tituloPromocion;
+    }
+
+    public String getTituloPromocionIng() {
+        return tituloPromocionIng;
+    }
+
+    public void setTituloPromocionIng(String tituloPromocionIng) {
+        this.tituloPromocionIng = tituloPromocionIng;
     }
 
     public void setTituloPromocion(String tituloPromocion) {
