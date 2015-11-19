@@ -300,7 +300,8 @@ public class MainActivity extends ActionBarActivity implements OnChangePage {
             getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentConfiguracion(this)).addToBackStack(null).commit();
         }
         if( (id.equals("Gimnasios")) || (id.equals("Gyms")) ){
-            getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentGimnasios(this)).addToBackStack(null).commit();
+            //getSupportFragmentManager().beginTransaction().replace(_fragmentContenido.getId(), new FragmentGimnasios(this)).addToBackStack(null).commit();
+            startActivity(new Intent(this, MapsActivity.class));
         }
         mDrawerLayout.closeDrawers();
     }

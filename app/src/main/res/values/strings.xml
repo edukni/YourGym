@@ -47,4 +47,5 @@
     </string-array>
 
     <string name="btnConfig">Guardar</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
